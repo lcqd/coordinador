@@ -59,8 +59,8 @@ Para el consumo del servicio se debe realizar a dirección [http://192.168.0.18:
 ```
 Archivo tipo Json
 {
- "dir_origen":"#direccionOrigen",
- "dir_destino":"#direccionDestino",
+ "dir_origen":"#direccionWalletOrigen",
+ "dir_destino":"#direccionWalletDestino",
  "monto":"#cantidad"
 }
 ```
@@ -71,3 +71,28 @@ Archivo tipo Json
  "false" (Transacción Rechazada)
  "true" (Transacción exitosa)
 }
+
+#### Servicio Consulta de saldo
+
+Este servicio es de tipo post, es consumido por el componente Wallet para realizar una consulta de saldo de una cuenta Wallet especificada. Se recibe un archivo tipo json con la información dirección de origen (dir_origen).
+
+El servicio devuelve como respuesta un dato de tipo "String" con el valor del monto o el mensaje enviado por el componente por blockchain.
+
+Para el consumo del servicio se debe realizar a dirección [http://192.168.0.18:8080/coordinator/RestU/](http://192.168.0.18:8080/coordinator/RestU/)
+
+
+
+#### Ejemplo de Consumo
+
+```
+Archivo tipo Json
+{
+ "dir_origen":"#direccionWalletOrigen",
+}
+```
+
+#### Respuesta del Consumo
+```
+"cantidad de dinero " o "mensaje de error"
+
+```
